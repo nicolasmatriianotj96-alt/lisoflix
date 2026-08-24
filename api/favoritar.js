@@ -1,22 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
-import jwt from 'jsonwebtoken';
+import { aplicarCors } from '../lib/cors.js';
+import { exigirUsuarioId } from '../lib/auth.js';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    aplicarCors(res, 'POST');
     if (req.method === 'OPTIONS') return res.status(200).end();
-    if (req.method!== 'POST') return res.status(405).end();
+    if (req.method !== 'POST') return res.status(405).end();
 
     try {
-        const auth = req.headers.authorization;
-        if (!auth) return res.status(401).json({ mensagem: 'Token não enviado' });
-
-        const token = auth.split(' ')[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const userId = decoded.id;
+        const userId = exigirUsuarioId(req);
         const { filme_id } = req.body;
 
         if (!filme_id) return res.status(400).json({ mensagem: 'filme_id faltando' });
@@ -44,7 +38,7 @@ export default async function handler(req, res) {
         }
 
     } catch (e) {
-        console.log("ERRO FAVORITAR:", e); // Olha isso no log da Vercel
-        return res.status(500).json({ mensagem: e.message });
+        console.log("ERRO FAVORITAR:", e);
+        return res.status(e.status || 500).json({ mensagem: e.status ? e.message : 'Erro ao processar requisição' });
     }
 }

@@ -1,0 +1,26 @@
+Créditos dos vídeos usados neste projeto de estudo
+====================================================
+
+Todos os vídeos abaixo são de curtas-metragens de código aberto ou clipes de
+teste de uso livre, baixados de https://test-videos.co.uk/ em versões curtas
+(10s) para manter o repositório leve. Nenhum conteúdo protegido por direitos
+autorais é distribuído aqui.
+
+1) Big Buck Bunny (bigbuckbunny_360.mp4 / bigbuckbunny_720.mp4)
+   Curta-metragem da Blender Foundation, 2008.
+   Licença: Creative Commons Attribution 3.0 (CC BY 3.0)
+   (c) copyright 2008, Blender Foundation / www.bigbuckbunny.org
+
+2) Sintel (sintel_360.mp4 / sintel_720.mp4)
+   Curta-metragem da Blender Foundation, 2010.
+   Licença: Creative Commons Attribution 3.0 (CC BY 3.0)
+   (c) copyright Blender Foundation / www.sintel.org
+
+3) Jellyfish (jellyfish_360.mp4 / jellyfish_720.mp4)
+   Clipe de teste de vídeo de uso livre, distribuído para fins de
+   demonstração/teste por test-videos.co.uk.
+
+Os títulos, sinopses e gêneros usados no catálogo do LisoFlix (arquivo
+filmes-locais.js) são fictícios/reaproveitados livremente sobre esses
+mesmos vídeos apenas para preencher o catálogo de demonstração do projeto
+de estudo — este site não é um serviço de streaming real.

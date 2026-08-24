@@ -1,21 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
-import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import { aplicarCors } from '../lib/cors.js';
+import { exigirUsuarioId } from '../lib/auth.js';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    aplicarCors(res, 'GET, PUT');
     if (req.method === 'OPTIONS') return res.status(200).end();
 
     try {
-        const auth = req.headers.authorization;
-        if (!auth) return res.status(401).json({ mensagem: 'Token não enviado' });
-
-        const token = auth.split(' ')[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const userId = decoded.id;
+        const userId = exigirUsuarioId(req);
 
         if (req.method === 'GET') {
             const { data: usuario, error } = await supabase
@@ -38,6 +33,13 @@ export default async function handler(req, res) {
             const { nome, email, senha } = req.body;
             const updateData = { usuario: nome, email }; // Salva em "usuario"
 
+            if (senha) {
+                if (senha.length < 8) {
+                    return res.status(400).json({ mensagem: 'Senha precisa ter 8+ caracteres' });
+                }
+                updateData.senha = await bcrypt.hash(senha, 10);
+            }
+
             const { error } = await supabase
              .from('usuarios')
              .update(updateData)
@@ -49,6 +51,6 @@ export default async function handler(req, res) {
 
     } catch (e) {
         console.log("ERRO USUARIO:", e);
-        return res.status(401).json({ mensagem: 'Token inválido' });
+        return res.status(e.status || 500).json({ mensagem: e.status ? e.message : 'Erro ao processar requisição' });
     }
 }

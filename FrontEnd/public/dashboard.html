@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisoFlix - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index3.css">
+</head>
+<body class="pagina-dashboard">
+    <header class="header-dashboard" id="headerDashboard">
+        <div class="marca">LisoFlix</div>
+
+        <input type="text" id="busca" class="campo-busca" placeholder="Buscar filme..." oninput="filtrarFilmes()">
+
+        <div class="header-botoes">
+            <button id="btnCatalogo" class="link-nav ativo" onclick="mostrarAba('catalogo')">Início</button>
+            <button id="btnFavoritos" class="link-nav" onclick="mostrarAba('favoritos')">Minha Lista <span id="countFav">0</span></button>
+            <div id="fotoHeader" class="avatar" onclick="abrirPerfil()">
+                <span id="inicialHeader">U</span>
+            </div>
+            <button class="registrar sair" onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-conteudo">
+            <span class="hero-tag">Em destaque</span>
+            <h1 id="heroTitulo">Carregando...</h1>
+            <p id="heroDescricao"></p>
+            <div class="hero-botoes">
+                <button class="btn-hero btn-assistir" id="heroAssistir">▶ Assistir</button>
+                <button class="btn-hero btn-fav-hero" id="heroFavoritar">＋ Minha Lista</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="conteudo">
+        <div id="boasvindas" class="boasvindas"></div>
+
+        <div id="catalogo" class="linhas"></div>
+
+        <div id="favoritos" class="linhas" style="display:none">
+            <div class="linha">
+                <h2 class="linha-titulo">Minha Lista</h2>
+                <div id="gradeFavoritos" class="grade-cards"></div>
+            </div>
+        </div>
+
+        <p id="mensagem" class="mensagem-vazio"></p>
+    </main>
+
+    <footer class="rodape">
+        LisoFlix — projeto de estudo. Vídeos de demonstração sob licença Creative Commons
+        (Blender Foundation) e clipes de teste livres. Não é um serviço de streaming real.
+    </footer>
+
+    <!-- Modal Player -->
+    <div id="modalTrailer" class="modal modal-player">
+        <div class="modal-player-caixa">
+            <button class="fechar-modal" onclick="fecharTrailer(event)">✕</button>
+            <video id="playerTrailer" class="player-video" controls playsinline></video>
+            <div class="player-info">
+                <h2 id="playerTitulo"></h2>
+                <p id="playerMeta"></p>
+                <p id="playerDescricao"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Perfil -->
+    <div id="modalPerfil" class="modal" onclick="fecharPerfil(event)">
+        <div class="modal-caixa">
+            <button class="fechar-modal" onclick="fecharPerfil(event)">✕</button>
+            <h2 class="modal-titulo">Editar Perfil</h2>
+
+            <div class="preview-avatar">
+                <span id="previewInicial">U</span>
+            </div>
+
+            <input type="text" id="novoNome" placeholder="Novo nome" class="campo-modal">
+            <input type="email" id="novoEmail" placeholder="Novo email" class="campo-modal">
+            <input type="password" id="novaSenha" placeholder="Nova senha - deixe vazio pra não alterar" class="campo-modal">
+            <button class="registrar" onclick="salvarPerfil()" style="width:100%;">Salvar</button>
+            <p id="msgPerfil" class="mensagem-modal"></p>
+        </div>
+    </div>
+
+    <script src="filmes-locais.js"></script>
+    <script src="dashboard.js?v=200"></script>
+</body>
+</html>
