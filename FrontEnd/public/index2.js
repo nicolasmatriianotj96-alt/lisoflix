@@ -63,3 +63,9 @@ async function registrar() {
 function irParaLogin() {
     window.location.href = 'index.html';
 }
+
+function entrarComoVisitante() {
+    localStorage.clear();
+    localStorage.setItem('modoVisitante', '1');
+    window.location.href = 'dashboard.html';
+}

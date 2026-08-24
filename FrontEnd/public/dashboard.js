@@ -180,7 +180,11 @@ function termoBusca() {
 
 function renderizarHero() {
     const destaques = filmes.filter(f => f.destaque);
-    heroFilme = destaques[0] || filmes[0];
+    if (!heroFilme) {
+        heroFilme = destaques.length
+            ? destaques[Math.floor(Math.random() * destaques.length)]
+            : filmes[0];
+    }
 
     const heroEl = document.getElementById('hero');
     if (!heroFilme || !heroEl) return;
@@ -190,11 +194,11 @@ function renderizarHero() {
 
     heroEl.style.background = `linear-gradient(180deg, transparent 40%, #000 100%), linear-gradient(120deg, ${heroFilme.corA}, ${heroFilme.corB})`;
 
-    // remove vídeo antigo do hero, se existir, e coloca o do filme em destaque
-    const antigo = heroEl.querySelector('video.hero-video');
-    if (antigo) antigo.remove();
-
-    if (heroFilme.preview) {
+    // só (re)cria o vídeo de fundo se ainda não existir ou se o destaque mudou
+    // (evita reiniciar o vídeo toda vez que a tela é re-renderizada, ex: ao favoritar)
+    const existente = heroEl.querySelector('video.hero-video');
+    if (heroFilme.preview && (!existente || existente.src.indexOf(heroFilme.preview) === -1)) {
+        if (existente) existente.remove();
         const video = document.createElement('video');
         video.className = 'hero-video';
         video.src = heroFilme.preview;
@@ -203,6 +207,8 @@ function renderizarHero() {
         video.loop = true;
         video.playsInline = true;
         heroEl.prepend(video);
+    } else if (!heroFilme.preview && existente) {
+        existente.remove();
     }
 
     const btnAssistir = document.getElementById('heroAssistir');

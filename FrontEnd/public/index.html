@@ -3,14 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LisoFlix - Login</title>
+    <title>LisoFlix - Filmes e séries sem limites</title>
+    <meta name="description" content="LisoFlix — catálogo de filmes com favoritos, perfil e player de vídeo. Projeto de portfólio full-stack (Node.js, Supabase, Vercel, JavaScript vanilla).">
+    <meta property="og:title" content="LisoFlix">
+    <meta property="og:description" content="Catálogo de filmes com favoritos, perfil e player de vídeo. Entre como visitante e explore.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23e50914'/%3E%3Cpath d='M38 27 L75 50 L38 73 Z' fill='white'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index3.css">
 </head>
 <body>
-    <div class="background">
+    <header class="landing-hero">
+        <video class="landing-hero-video" autoplay muted loop playsinline src="videos/sintel_720.mp4"></video>
+        <div class="landing-hero-overlay"></div>
+
+        <nav class="landing-nav">
+            <span class="marca-login">LisoFlix</span>
+            <a href="#entrar" class="link-entrar-nav">Entrar</a>
+        </nav>
+
+        <div class="landing-hero-conteudo">
+            <span class="hero-tag">Portfólio full-stack</span>
+            <h1>Histórias para todo momento.</h1>
+            <p>Um catálogo completo, com favoritos, perfil e player de vídeo. Crie uma conta ou explore agora mesmo, sem compromisso.</p>
+            <div class="landing-cta-botoes">
+                <button class="btn-landing btn-landing-primario" onclick="irParaCadastro()">Criar conta grátis</button>
+                <button class="btn-landing btn-landing-secundario" onclick="entrarComoVisitante()">Entrar como visitante</button>
+            </div>
+        </div>
+
+        <a href="#entrar" class="scroll-indicador" aria-label="Rolar para o login">⌄</a>
+    </header>
+
+    <div class="background" id="entrar">
         <div class="overlay"></div>
         <div class="login-container">
             <h1 class="marca-login">LisoFlix</h1>
@@ -26,6 +53,13 @@
             <p id="mensagem" style="text-align: center; margin-top: 15px;"></p>
         </div>
     </div>
+
+    <footer class="rodape">
+        LisoFlix é um projeto de portfólio (não é um serviço de streaming real) — Node.js · Supabase · Vercel · JavaScript vanilla.
+        Vídeos de demonstração sob licença Creative Commons (Blender Foundation) e clipes de teste livres.
+        <br>
+        <a href="https://github.com/nicolasmatriianotj96-alt/LisoflixS3" target="_blank" rel="noopener">Ver código no GitHub</a>
+    </footer>
 
     <script src="index.js"></script>
 </body>

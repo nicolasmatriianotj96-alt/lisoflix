@@ -1,13 +1,15 @@
 // Catálogo local do LisoFlix.
 // Serve como fallback (e fonte principal enquanto o backend/Supabase não está
-// configurado) para o site sempre ter conteúdo navegável, mesmo offline.
+// com o catálogo real populado) para o site sempre ter conteúdo navegável,
+// mesmo offline.
 //
-// Vídeos: recortes curtos de curtas-metragens de código aberto da Blender
-// Foundation (Big Buck Bunny, Sintel — licença CC BY 3.0) e o clipe de teste
-// "Jellyfish" (uso livre), servidos por test-videos.co.uk. Nenhum conteúdo
-// protegido por direitos autorais é usado — ver FrontEnd/public/videos/CREDITOS.txt.
+// Vídeos: curtas-metragens de código aberto da Blender Foundation / Blender
+// Studio (licença CC BY) e um clipe de teste de uso livre. Nenhum conteúdo
+// protegido por direitos autorais de terceiros é usado — ver
+// FrontEnd/public/videos/CREDITOS.txt para a lista completa e as fontes.
 
 const FILMES_LOCAIS = [
+    // ==================== AÇÃO (Big Buck Bunny) ====================
     {
         id: 1,
         titulo: "Big Buck Bunny",
@@ -50,6 +52,47 @@ const FILMES_LOCAIS = [
     },
     {
         id: 4,
+        titulo: "Correria na Clareira",
+        genero: "Ação",
+        ano: 2011,
+        classificacao: "10",
+        icone: "🐿️",
+        corA: "#33691e",
+        corB: "#aed581",
+        descricao: "Uma manhã comum vira caos total quando um plano de vingança dá errado bem no meio da clareira.",
+        preview: "videos/bigbuckbunny_360.mp4",
+        video: "videos/bigbuckbunny_720.mp4"
+    },
+    {
+        id: 5,
+        titulo: "O Ataque dos Roedores",
+        genero: "Ação",
+        ano: 2012,
+        classificacao: "12",
+        icone: "🐭",
+        corA: "#4e342e",
+        corB: "#a1887f",
+        descricao: "Três roedores implicantes armam a maior confusão da floresta — só não contavam com a reação do gigante gentil.",
+        preview: "videos/bigbuckbunny_360.mp4",
+        video: "videos/bigbuckbunny_720.mp4"
+    },
+    {
+        id: 6,
+        titulo: "Instinto de Sobrevivência",
+        genero: "Ação",
+        ano: 2013,
+        classificacao: "14",
+        icone: "🍃",
+        corA: "#1b5e20",
+        corB: "#c0ca33",
+        descricao: "Quando a paciência acaba, só resta usar a criatividade — e algumas armadilhas bem posicionadas — para sobreviver ao dia.",
+        preview: "videos/bigbuckbunny_360.mp4",
+        video: "videos/bigbuckbunny_720.mp4"
+    },
+
+    // ==================== FANTASIA (Sintel) ====================
+    {
+        id: 7,
         titulo: "Sintel",
         genero: "Fantasia",
         ano: 2010,
@@ -63,7 +106,7 @@ const FILMES_LOCAIS = [
         destaque: true
     },
     {
-        id: 5,
+        id: 8,
         titulo: "Guerreira das Sombras",
         genero: "Fantasia",
         ano: 2011,
@@ -76,7 +119,7 @@ const FILMES_LOCAIS = [
         video: "videos/sintel_720.mp4"
     },
     {
-        id: 6,
+        id: 9,
         titulo: "A Última Jornada",
         genero: "Fantasia",
         ano: 2012,
@@ -89,7 +132,48 @@ const FILMES_LOCAIS = [
         video: "videos/sintel_720.mp4"
     },
     {
-        id: 7,
+        id: 10,
+        titulo: "O Chamado do Dragão",
+        genero: "Fantasia",
+        ano: 2013,
+        classificacao: "12",
+        icone: "🔥",
+        corA: "#3f0d12",
+        corB: "#8e2de2",
+        descricao: "Um grito distante ecoa nas montanhas. Alguém — ou algo — está chamando, e ela não vai ignorar de novo.",
+        preview: "videos/sintel_360.mp4",
+        video: "videos/sintel_720.mp4"
+    },
+    {
+        id: 11,
+        titulo: "Terras Desoladas",
+        genero: "Fantasia",
+        ano: 2014,
+        classificacao: "14",
+        icone: "🏔️",
+        corA: "#232526",
+        corB: "#485563",
+        descricao: "Nada cresce onde a guerra passou. Ainda assim, é por essas terras que a esperança insiste em caminhar.",
+        preview: "videos/sintel_360.mp4",
+        video: "videos/sintel_720.mp4"
+    },
+    {
+        id: 12,
+        titulo: "A Busca Eterna",
+        genero: "Fantasia",
+        ano: 2015,
+        classificacao: "12",
+        icone: "✨",
+        corA: "#360033",
+        corB: "#0b8793",
+        descricao: "Anos de procura, uma promessa não cumprida e um vínculo que nem o tempo conseguiu apagar.",
+        preview: "videos/sintel_360.mp4",
+        video: "videos/sintel_720.mp4"
+    },
+
+    // ==================== DOCUMENTÁRIO (Jellyfish) ====================
+    {
+        id: 13,
         titulo: "Vida Marinha",
         genero: "Documentário",
         ano: 2013,
@@ -103,7 +187,7 @@ const FILMES_LOCAIS = [
         destaque: true
     },
     {
-        id: 8,
+        id: 14,
         titulo: "Oceano Azul",
         genero: "Documentário",
         ano: 2014,
@@ -116,7 +200,7 @@ const FILMES_LOCAIS = [
         video: "videos/jellyfish_720.mp4"
     },
     {
-        id: 9,
+        id: 15,
         titulo: "Profundezas",
         genero: "Documentário",
         ano: 2015,
@@ -127,5 +211,193 @@ const FILMES_LOCAIS = [
         descricao: "Quanto mais fundo se vai, mais estranho e bonito o oceano se torna. Uma jornada visual sem pressa nenhuma.",
         preview: "videos/jellyfish_360.mp4",
         video: "videos/jellyfish_720.mp4"
+    },
+    {
+        id: 16,
+        titulo: "Correntes Silenciosas",
+        genero: "Documentário",
+        ano: 2016,
+        classificacao: "Livre",
+        icone: "🫧",
+        corA: "#141e30",
+        corB: "#243b55",
+        descricao: "Sem pressa, sem ruído: só o balanço lento das correntes movendo tudo o que existe lá embaixo.",
+        preview: "videos/jellyfish_360.mp4",
+        video: "videos/jellyfish_720.mp4"
+    },
+    {
+        id: 17,
+        titulo: "O Mundo Submerso",
+        genero: "Documentário",
+        ano: 2017,
+        classificacao: "Livre",
+        icone: "🐋",
+        corA: "#003973",
+        corB: "#e5e5be",
+        descricao: "Um retrato do que vive abaixo da superfície — translúcido, silencioso e completamente alheio ao mundo lá em cima.",
+        preview: "videos/jellyfish_360.mp4",
+        video: "videos/jellyfish_720.mp4"
+    },
+    {
+        id: 18,
+        titulo: "Bioluminescência",
+        genero: "Documentário",
+        ano: 2018,
+        classificacao: "Livre",
+        icone: "💫",
+        corA: "#0f2027",
+        corB: "#00c9ff",
+        descricao: "Luz própria em meio ao escuro absoluto: um estudo visual sobre as criaturas que brilham nas profundezas.",
+        preview: "videos/jellyfish_360.mp4",
+        video: "videos/jellyfish_720.mp4"
+    },
+
+    // ==================== COMÉDIA (Caminandes) ====================
+    {
+        id: 19,
+        titulo: "Caminandes: Drama da Lhama",
+        genero: "Comédia",
+        ano: 2013,
+        classificacao: "Livre",
+        icone: "🦙",
+        corA: "#1e3c72",
+        corB: "#a1c4fd",
+        descricao: "Uma lhama tenta atravessar a neve em paz, mas um pica-pau chato tem outros planos. A viagem mais azarada do inverno.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm",
+        destaque: true
+    },
+    {
+        id: 20,
+        titulo: "Confusão na Neve",
+        genero: "Comédia",
+        ano: 2014,
+        classificacao: "Livre",
+        icone: "❄️",
+        corA: "#83a4d4",
+        corB: "#b6fbff",
+        descricao: "Tudo o que podia dar errado numa manhã de neve, deu — e ainda tem um pica-pau no meio disso tudo.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm"
+    },
+    {
+        id: 21,
+        titulo: "O Pica-Pau Implicante",
+        genero: "Comédia",
+        ano: 2015,
+        classificacao: "Livre",
+        icone: "🐦",
+        corA: "#2b5876",
+        corB: "#4e4376",
+        descricao: "Ele só queria atravessar em paz. O pica-pau tinha outros planos — e eles envolvem bastante barulho.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm"
+    },
+    {
+        id: 22,
+        titulo: "Uma Lhama Muito Azarada",
+        genero: "Comédia",
+        ano: 2016,
+        classificacao: "Livre",
+        icone: "😅",
+        corA: "#396afc",
+        corB: "#2948ff",
+        descricao: "Toda vez que parece que vai dar certo, dá errado de novo. Uma comédia de erros no meio da neve.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm"
+    },
+    {
+        id: 23,
+        titulo: "Inverno Complicado",
+        genero: "Comédia",
+        ano: 2017,
+        classificacao: "Livre",
+        icone: "⛄",
+        corA: "#134e5e",
+        corB: "#71b280",
+        descricao: "Um pequeno passeio de inverno vira uma novela de percalços, um atrás do outro, sem parar.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm"
+    },
+    {
+        id: 24,
+        titulo: "Fuga na Trilha Nevada",
+        genero: "Comédia",
+        ano: 2018,
+        classificacao: "Livre",
+        icone: "🥾",
+        corA: "#485563",
+        corB: "#29323c",
+        descricao: "Só faltava mais uma coisa dar errado nessa trilha gelada — e claro que deu.",
+        preview: "videos/caminandes_240.webm",
+        video: "videos/caminandes_240.webm"
+    },
+
+    // ==================== FICÇÃO CIENTÍFICA (Glass Half) ====================
+    {
+        id: 25,
+        titulo: "Glass Half",
+        genero: "Ficção Científica",
+        ano: 2015,
+        classificacao: "14",
+        icone: "🥂",
+        corA: "#2b1055",
+        corB: "#7597de",
+        descricao: "Num bar iluminado por néon, um encontro silencioso entre duas figuras diz mais do que qualquer diálogo precisaria.",
+        preview: "videos/glasshalf_240.webm",
+        video: "videos/glasshalf_240.webm",
+        destaque: true
+    },
+    {
+        id: 26,
+        titulo: "Encontros no Bar",
+        genero: "Ficção Científica",
+        ano: 2016,
+        classificacao: "14",
+        icone: "🍸",
+        corA: "#20002c",
+        corB: "#cbb4d4",
+        descricao: "Numa cidade onde ninguém mais se olha nos olhos, um bar ainda guarda espaço para um encontro de verdade.",
+        preview: "videos/glasshalf_240.webm",
+        video: "videos/glasshalf_240.webm"
+    },
+    {
+        id: 27,
+        titulo: "Sinais do Futuro",
+        genero: "Ficção Científica",
+        ano: 2017,
+        classificacao: "16",
+        icone: "📡",
+        corA: "#0f0c29",
+        corB: "#8e2de2",
+        descricao: "Entre luzes artificiais e reflexos de vidro, algo sobre o futuro começa a ficar claro demais para ignorar.",
+        preview: "videos/glasshalf_240.webm",
+        video: "videos/glasshalf_240.webm"
+    },
+    {
+        id: 28,
+        titulo: "Máquinas e Sombras",
+        genero: "Ficção Científica",
+        ano: 2018,
+        classificacao: "14",
+        icone: "🤖",
+        corA: "#232526",
+        corB: "#5f2c82",
+        descricao: "Nem tudo que parece humano é humano. Nem tudo que parece máquina é só máquina.",
+        preview: "videos/glasshalf_240.webm",
+        video: "videos/glasshalf_240.webm"
+    },
+    {
+        id: 29,
+        titulo: "Noite Synthwave",
+        genero: "Ficção Científica",
+        ano: 2019,
+        classificacao: "12",
+        icone: "🌌",
+        corA: "#3a1c71",
+        corB: "#d76d77",
+        descricao: "Néon, silêncio e uma cidade que nunca dorme de verdade — só espera o próximo encontro acontecer.",
+        preview: "videos/glasshalf_240.webm",
+        video: "videos/glasshalf_240.webm"
     }
 ];
