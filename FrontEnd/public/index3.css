@@ -224,24 +224,16 @@ h1, h2, .marca, .marca-login {
     background: rgba(255,255,255,0.2);
 }
 
-.scroll-indicador {
+.landing-hero-unica {
+    justify-content: space-between;
+}
+
+.rodape-landing {
     position: relative;
     z-index: 2;
-    text-align: center;
-    color: #ccc;
-    font-size: 28px;
-    text-decoration: none;
-    padding-bottom: 20px;
-    animation: flutuar 2s ease-in-out infinite;
-}
-
-@keyframes flutuar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-}
-
-#entrar {
-    scroll-margin-top: 0;
+    border-top: none;
+    padding: 16px 20px 22px;
+    margin: 0;
 }
 
 @media (max-width: 768px) {

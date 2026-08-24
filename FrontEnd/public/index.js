@@ -55,6 +55,18 @@ function entrarComoVisitante() {
     window.location.href = 'dashboard.html';
 }
 
+function abrirLogin(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('modalLogin');
+    if (modal) modal.style.display = 'flex';
+}
+
+function fecharLogin(event) {
+    if (event) event.preventDefault();
+    const modal = document.getElementById('modalLogin');
+    if (modal) modal.style.display = 'none';
+}
+
 window.onload = function() {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');

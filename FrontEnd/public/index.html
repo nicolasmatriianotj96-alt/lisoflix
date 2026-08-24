@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="index3.css">
 </head>
 <body>
-    <header class="landing-hero">
+    <div class="landing-hero landing-hero-unica">
         <video class="landing-hero-video" autoplay muted loop playsinline src="videos/sintel_720.mp4"></video>
         <div class="landing-hero-overlay"></div>
 
         <nav class="landing-nav">
             <span class="marca-login">LisoFlix</span>
-            <a href="#entrar" class="link-entrar-nav">Entrar</a>
+            <a href="#" class="link-entrar-nav" onclick="abrirLogin(event)">Entrar</a>
         </nav>
 
         <div class="landing-hero-conteudo">
@@ -34,12 +34,17 @@
             </div>
         </div>
 
-        <a href="#entrar" class="scroll-indicador" aria-label="Rolar para o login">⌄</a>
-    </header>
+        <footer class="rodape rodape-landing">
+            LisoFlix é um projeto de portfólio (não é um serviço de streaming real) — Node.js · Supabase · Vercel · JavaScript vanilla.
+            <br>
+            <a href="https://github.com/nicolasmatriianotj96-alt/lisoflix" target="_blank" rel="noopener" style="color:#aaa;">Ver código no GitHub</a>
+        </footer>
+    </div>
 
-    <div class="background" id="entrar">
-        <div class="overlay"></div>
-        <div class="login-container">
+    <!-- Modal de login -->
+    <div id="modalLogin" class="modal" onclick="fecharLogin(event)">
+        <div class="login-container" onclick="event.stopPropagation()">
+            <button class="fechar-modal" onclick="fecharLogin(event)">✕</button>
             <h1 class="marca-login">LisoFlix</h1>
             <h3>Faça login para continuar</h3>
 
@@ -53,13 +58,6 @@
             <p id="mensagem" style="text-align: center; margin-top: 15px;"></p>
         </div>
     </div>
-
-    <footer class="rodape">
-        LisoFlix é um projeto de portfólio (não é um serviço de streaming real) — Node.js · Supabase · Vercel · JavaScript vanilla.
-        Vídeos de demonstração sob licença Creative Commons (Blender Foundation) e clipes de teste livres.
-        <br>
-        <a href="https://github.com/nicolasmatriianotj96-alt/lisoflix" target="_blank" rel="noopener">Ver código no GitHub</a>
-    </footer>
 
     <script src="index.js"></script>
 </body>
